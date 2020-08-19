@@ -9,7 +9,7 @@ See readme for examples and info
 mongoose = require 'mongoose'
 dot = require 'dot-component'
 _ = require 'underscore'
-owl = require 'owl-deepcopy'
+clone = require 'clone'
 
 ###
 Added by @watnotte
@@ -65,7 +65,7 @@ module.exports =
 
 			extendSchemaWithTenantId = (tenantId, schema) ->
 				extension = {}
-				newSchema = owl.deepCopy(schema)
+				newSchema = clone.clonePrototype(schema)
 				# Fix for callQueue arguments, todo: fix clone implementation
 				newSchema.callQueue.forEach (k) ->
 					args = []
