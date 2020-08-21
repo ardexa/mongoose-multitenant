@@ -103,9 +103,7 @@ module.exports =
 					return connection.mtModel(@getTenantId() + '.' + name)
 			
 			make = (tenantId, modelName) ->
-				console.log 'making %s for %s', modelName, tenantId
 				if connection.mtModel.tenants.indexOf(tenantId) == -1
-					console.log 'adding %s', tenantId
 					connection.mtModel.tenants.push(tenantId)
 				tenantModelName = tenantId + collectionDelimiter + modelName
 				if connection.models[tenantModelName]?
@@ -172,6 +170,5 @@ module.exports =
 		connection.mtModel.goingToCompile = []
 		connection.mtModel.tenants = []
 		connection.mtModel.addTenant = (tenantId) ->
-			console.log 'adding tenant %s', tenantId
 			connection.mtModel.tenants.push(tenantId)
 
