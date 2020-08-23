@@ -162,7 +162,7 @@ module.exports = {
         tenants.reverse();
         args = arguments;
         tenantId = _.find(tenants, function(tenant) {
-          return new RegExp('^' + tenant + '.').test(args[0]);
+          return new RegExp('^' + tenant + '\.').test(args[0]);
         });
         if (!tenantId) {
           parts = arguments[0].split('.');

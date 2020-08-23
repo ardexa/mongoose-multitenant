@@ -142,7 +142,7 @@ module.exports =
 				
 				args = arguments
 				tenantId = _.find tenants, (tenant) ->
-					return new RegExp('^'+tenant + '.').test(args[0])
+					return new RegExp('^'+tenant + '\.').test(args[0])
 
 				if !tenantId
 					# If the name has dot notation, then they want to get that model for that tenant. If it hasn't yet been
