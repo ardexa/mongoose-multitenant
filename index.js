@@ -62,7 +62,7 @@ module.exports = {
           type: mongoose.Schema.Types.ObjectId
         };
         _ref = path.options;
-        for (key in _ref) {
+        for (key of Object.keys(_ref)) {
           val = _ref[key];
           if (key !== 'type') {
             newPath[key] = _.clone(val, true);
@@ -81,7 +81,7 @@ module.exports = {
           args = [];
           _ref = k[1];
           _results = [];
-          for (key in _ref) {
+          for (key of Object.keys(_ref)) {
             val = _ref[key];
             args.push(val);
             _results.push(k[1] = args);
@@ -89,7 +89,7 @@ module.exports = {
           return _results;
         });
         _ref = schema.paths;
-        for (prop in _ref) {
+        for (prop of Object.keys(_ref)) {
           config = _ref[prop];
           if (config.options.type instanceof Array) {
             if (config.schema != null) {
