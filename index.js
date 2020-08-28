@@ -19,6 +19,17 @@ clone = require('clone');
 Added by @watnotte
 */
 
+/*
+  timo: Restore plugin for mongoose.mtModel for basic backwards-compatibility with loading
+    pre-registered multitenant models on the default connection:
+*/
+mongoose.mtModel = function(name, schema, collectionName) {
+  if (!mongoose.connection.mtModel) {
+    throw new Error('mongoose-multitenant not initialised, call setup() on mongoose-multitenant first');
+  }
+  return mongoose.connection.mtModel(name, schema, collectionName);
+};
+
 
 module.exports = {
   collectionDelimiter: '__',
