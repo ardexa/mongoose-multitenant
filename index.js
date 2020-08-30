@@ -27,9 +27,8 @@ mongoose.mtModel = function(name, schema, collectionName) {
   if (!mongoose.connection.mtModel) {
     throw new Error('mongoose-multitenant not initialised, call setup() on mongoose-multitenant first');
   }
-  return mongoose.connection.mtModel(name, schema, collectionName);
+  return mongoose.connection.mtModel.apply(this, arguments);
 };
-
 
 module.exports = {
   collectionDelimiter: '__',
